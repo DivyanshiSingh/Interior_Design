@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "432610355640",
+    "firebase_url": "https://insideout-cb93a.firebaseio.com",
+    "project_id": "insideout-cb93a",
+    "storage_bucket": "insideout-cb93a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432610355640:android:39bae17a1b9e7f5b50c74d",
+        "android_client_info": {
+          "package_name": "com.example.interiordesign"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432610355640-pv32h37qfdtrlpk658qk5kb4s8sn8ab6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.interiordesign",
+            "certificate_hash": "aafd12b3ae50951ef0cd77679394604bc93c7db9"
+          }
+        },
+        {
+          "client_id": "432610355640-491a368i69aegq7j85vlskktlph0g2b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTVfFCNcfEX6n9wzfwPI7qqb5Jt2f9WXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432610355640-491a368i69aegq7j85vlskktlph0g2b0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
