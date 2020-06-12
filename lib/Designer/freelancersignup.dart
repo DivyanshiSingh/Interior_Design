@@ -2,17 +2,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import '../screens/login.dart';
+
 import 'dart:async';
 
 import '../screens/home.dart';
+import 'freelancerlogin.dart';
 
-class Signup extends StatefulWidget {
+class FreelancerSignup extends StatefulWidget {
   @override
-  _SignupState createState() => _SignupState();
+  _FreelancerSignupState createState() => _FreelancerSignupState();
 }
 
-class _SignupState extends State<Signup> {
+class _FreelancerSignupState extends State<FreelancerSignup> {
   String _email, _password, _username;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -274,8 +275,10 @@ class _SignupState extends State<Signup> {
         );
         // user.sendEmailVerifcation();
         Navigator.of(context).pop();
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Hello()));
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => FreelancerLogin()));
+        // Navigator.push(
+        //     context, MaterialPageRoute(builder: (context) => Home()));
       } catch (e) {
         print(e);
       }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:interiordesign/Designer/freelancerlogin.dart';
+// import 'package:interiordesign/screens/freelancerlogin.dart';
 import 'package:interiordesign/screens/signup.dart';
 import '../screens/login.dart';
 
@@ -145,8 +147,82 @@ class _ChoiceState extends State<Choice> {
               ),
             ),
           ),
-          if (dropdownValue == "I am a buyer" ||
-              dropdownValue == "I am a designer") ...[
+          if (dropdownValue == "I am a designer") ...[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(25, 400, 0, 0),
+              child: Text(
+                "Discover our world of interior designer available to hire per project, send messages and control your finance.",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black38,
+                  fontFamily: 'Open Sans',
+                  decoration: TextDecoration.none,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 585, 20, 40),
+              child: SizedBox.expand(
+                child: RaisedButton(
+                  color: Colors.amber,
+                  textColor: Colors.white,
+                  // disabledColor: Colors.grey,
+                  // disabledTextColor: Colors.black,
+                  padding: EdgeInsets.all(8.0),
+                  // splashColor: Colors.blueAccent,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Signup(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "SIGN UP",
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(100, 650, 20, 10),
+              child: Text(
+                "Already have an account?",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.black38,
+                  fontFamily: 'Open Sans',
+                  decoration: TextDecoration.none,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(225, 650, 20, 10),
+              child: Material(
+                child: InkWell(
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.amber,
+                        fontFamily: 'Open Sans',
+                        decoration: TextDecoration.none,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FreelancerLogin(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
+          if (dropdownValue == "I am a buyer") ...[
             Padding(
               padding: const EdgeInsets.fromLTRB(25, 400, 0, 0),
               child: Text(

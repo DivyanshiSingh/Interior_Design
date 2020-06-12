@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:interiordesign/screens/forgotScreen.dart';
+import 'package:interiordesign/Designer/designerscreens/designerhome.dart';
 import 'package:interiordesign/screens/home.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:interiordesign/screens/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../authentication/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
-class Login extends StatefulWidget {
+class FreelancerLogin extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _FreelancerLoginState createState() => _FreelancerLoginState();
 }
 
-class _LoginState extends State<Login> {
+class _FreelancerLoginState extends State<FreelancerLogin> {
   String _email, _password;
   GoogleSignIn googleAuth = new GoogleSignIn();
   FacebookLogin fbLogin = new FacebookLogin();
@@ -58,7 +57,7 @@ class _LoginState extends State<Login> {
     print('Here');
     if (isLoggedin) {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Home()));
+          context, MaterialPageRoute(builder: (context) => DesignerHome()));
     }
     setState(() {
       loading = false;
@@ -136,7 +135,7 @@ class _LoginState extends State<Login> {
             Padding(
               padding: EdgeInsets.fromLTRB(40, 160, 10, 0),
               child: Text(
-                "Login",
+                "Hello Designer",
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
                   // fontStyle: FontStyle.italic,
@@ -204,6 +203,7 @@ class _LoginState extends State<Login> {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 12),
                           child: TextFormField(
+                            // controller: _passwordTextController,
                             obscureText: hidden,
                             decoration: InputDecoration(
                               hintText: "password",
@@ -376,7 +376,7 @@ class _LoginState extends State<Login> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ForgotScreen(),
+                        builder: (context) => FreelancerLogin(),
                       ),
                     );
                   },
@@ -409,7 +409,7 @@ class _LoginState extends State<Login> {
         AuthResult user = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: _email, password: _password);
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Home()));
+            context, MaterialPageRoute(builder: (context) => DesignerHome()));
       } catch (e) {
         print(e);
       }
