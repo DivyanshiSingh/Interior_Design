@@ -48,65 +48,71 @@ class _ChoiceState extends State<Choice> {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 190, 10, 0),
-            child: Text(
-              "Help us improve your",
-              style: TextStyle(
-                fontWeight: FontWeight.w900,
-                // fontStyle: FontStyle.italic,
-                fontFamily: 'Open Sans',
-                decoration: TextDecoration.none,
-                fontSize: 37,
-                color: Colors.black,
+          Container(
+            margin: EdgeInsets.symmetric(vertical:150.0,horizontal:20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Center(
+                child:  Text(
+                  'Help us improve your',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    // fontStyle: FontStyle.italic,
+                    fontFamily: 'Open Sans',
+                    decoration: TextDecoration.none,
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                ),
               ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(95, 235, 10, 0),
-            child: Text(
-              "experience!",
-              style: TextStyle(
-                fontWeight: FontWeight.w900,
-                // fontStyle: FontStyle.italic,
-                fontFamily: 'Open Sans',
-                decoration: TextDecoration.none,
-                fontSize: 37,
-                color: Colors.black,
+              Center(
+                child: Text(
+                  "Experience!",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    // fontStyle: FontStyle.italic,
+                    fontFamily: 'Open Sans',
+                    decoration: TextDecoration.none,
+                    fontSize: 30,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                )
               ),
-              textAlign: TextAlign.center,
-            ),
+              Center(
+                child: Text(
+                  "What are you looking for?",
+                  style: TextStyle(
+                    fontFamily: 'Open Sans',
+                    decoration: TextDecoration.none,
+                    fontSize: 20,
+                    color: Colors.black38,
+                  ),
+                  textAlign: TextAlign.center,
+                )
+              )
+            ]
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(80, 280, 10, 0),
-            child: Text(
-              "What are you looking for?",
-              style: TextStyle(
-                // fontWeight: FontWeight.w900,
-                // fontStyle: FontStyle.italic,
-                fontFamily: 'Open Sans',
-                decoration: TextDecoration.none,
-                fontSize: 20,
-                color: Colors.black38,
-              ),
-              textAlign: TextAlign.center,
-            ),
+              ],
+            )
           ),
-          Padding(
-            // padding: const EdgeInsets.all(100),
-            padding: const EdgeInsets.fromLTRB(120, 330, 0, 0),
-            child: Container(
-              height: 60,
-              // width: 300,
-              color: Colors.deepOrange[100],
-              child: Material(
-                child: DropdownButton<String>(
+          
+          Container(
+            margin: EdgeInsets.symmetric(vertical:250),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Material(
+                    child: DropdownButton<String>(
                   hint: Text(
                     'select an option',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
                   ),
                   value: dropdownValue,
                   icon: Icon(
@@ -115,19 +121,6 @@ class _ChoiceState extends State<Choice> {
                   ),
                   iconSize: 24,
                   elevation: 16,
-                  style: TextStyle(color: Colors.grey),
-                  // underline: Container(
-                  //   height: 40.0,
-                  //   // width: 100.0,
-                  //   color: Colors.deepOrange[100],
-                  // ),
-                  // SizedBox(
-                  //   width: 42.0,
-                  //   height: 42.0,
-                  //   child: const DecoratedBox(
-                  //     decoration: const BoxDecoration(color: Colors.deepOrange),
-                  //   ),
-                  // ),
                   onChanged: (String newValue) {
                     setState(() {
                       dropdownValue = newValue;
@@ -137,9 +130,69 @@ class _ChoiceState extends State<Choice> {
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(
-                        value,
-                        style: TextStyle(fontSize: 20, color: Colors.black),
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.grade,
+                            color: Colors.lightGreen,
+                          ),
+                          SizedBox(width: 10,),
+                          Text(
+                            value,
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+              ],
+              ),
+            ],
+          ),
+          ),
+          
+          Padding(                            
+            padding: const EdgeInsets.fromLTRB(120, 330, 0, 0),
+            child: Container(
+              height: 40,
+              decoration: new BoxDecoration(
+                color: Colors.transparent,
+              ),
+              child: Material(
+                child: DropdownButton<String>(
+                  hint: Text(
+                    'select an option',
+                  ),
+                  value: dropdownValue,
+                  icon: Icon(
+                    Icons.arrow_drop_down,
+                    color: Colors.black,
+                  ),
+                  iconSize: 24,
+                  elevation: 16,
+                  onChanged: (String newValue) {
+                    setState(() {
+                      dropdownValue = newValue;
+                    });
+                  },
+                  items: <String>['I am a buyer', 'I am a designer']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.grade,
+                            color: Colors.lightGreen,
+                          ),
+                          SizedBox(width: 10,),
+                          Text(
+                            value,
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ],
                       ),
                     );
                   }).toList(),
@@ -236,7 +289,7 @@ class _ChoiceState extends State<Choice> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 585, 20, 40),
+              padding: const EdgeInsets.fromLTRB(20, 585, 20, 50),
               child: SizedBox.expand(
                 child: RaisedButton(
                   color: Colors.amber,
