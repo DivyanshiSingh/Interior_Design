@@ -3,6 +3,7 @@ import 'package:interiordesign/Designer/freelancerlogin.dart';
 // import 'package:interiordesign/screens/freelancerlogin.dart';
 import 'package:interiordesign/screens/signup.dart';
 import '../screens/login.dart';
+import '../size_config.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +31,7 @@ class _ChoiceState extends State<Choice> {
   String dropdownValue;
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Container(
       height: double.infinity,
       width: double.infinity,
@@ -53,58 +55,61 @@ class _ChoiceState extends State<Choice> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Center(
-                        child: Text(
-                          'Help us improve your',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            // fontStyle: FontStyle.italic,
-                            fontFamily: 'Open Sans',
-                            decoration: TextDecoration.none,
-                            fontSize: 30,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Center(
-                        child: Text(
-                          "Experience!",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            // fontStyle: FontStyle.italic,
-                            fontFamily: 'Open Sans',
-                            decoration: TextDecoration.none,
-                            fontSize: 30,
-                            color: Colors.black,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Center(
-                          child: Text(
-                        "What are you looking for?",
+                Column(children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Center(
+                    child: FittedBox(
+                      child: Text(
+                        'Help us improve your',
                         style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          // fontStyle: FontStyle.italic,
                           fontFamily: 'Open Sans',
                           decoration: TextDecoration.none,
-                          fontSize: 20,
-                          color: Colors.black38,
+                          fontSize: 30,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Center(
+                    child: FittedBox(
+                      child: Text(
+                        "Experience!",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          // fontStyle: FontStyle.italic,
+                          fontFamily: 'Open Sans',
+                          decoration: TextDecoration.none,
+                          fontSize: 30,
+                          color: Colors.black,
                         ),
                         textAlign: TextAlign.center,
-                      ))
-                    ]),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Center(
+                      child: FittedBox(
+                    child: Text(
+                      "What are you looking for?",
+                      style: TextStyle(
+                        fontFamily: 'Open Sans',
+                        decoration: TextDecoration.none,
+                        fontSize: 20,
+                        color: Colors.black38,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ))
+                ]),
               ],
             ),
           ),
@@ -249,7 +254,7 @@ class _ChoiceState extends State<Choice> {
           ],
           if (dropdownValue == "I am a buyer") ...[
             Padding(
-              padding: const EdgeInsets.fromLTRB(25, 400, 0, 0),
+              padding: const EdgeInsets.fromLTRB(20, 400, 20, 0),
               child: Text(
                 "Discover our world of interior designer available to hire per project, send messages and control your finance.",
                 style: TextStyle(
@@ -260,9 +265,14 @@ class _ChoiceState extends State<Choice> {
                 ),
               ),
             ),
+            SizedBox(height: 30),
+            // Spacer(),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 585, 20, 50),
-              child: SizedBox.expand(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width / 3,
+                  vertical: MediaQuery.of(context).size.height / 3),
+              // padding: const EdgeInsets.fromLTRB(20, 585, 20, 50),
+              child: SizedBox(
                 child: RaisedButton(
                   color: Colors.amber,
                   textColor: Colors.white,
@@ -285,41 +295,51 @@ class _ChoiceState extends State<Choice> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(100, 650, 20, 10),
-              child: Text(
-                "Already have an account?",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black38,
-                  fontFamily: 'Open Sans',
-                  decoration: TextDecoration.none,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(225, 650, 20, 10),
-              child: Material(
-                child: InkWell(
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.width / 6,
+                      vertical: MediaQuery.of(context).size.height / 5),
+                  // padding: const EdgeInsets.fromLTRB(100, 650, 20, 10),
                   child: Text(
-                    "Login",
+                    "Already have an account?",
                     style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.amber,
-                        fontFamily: 'Open Sans',
-                        decoration: TextDecoration.none,
-                        fontWeight: FontWeight.bold),
+                      fontSize: 12,
+                      color: Colors.black38,
+                      fontFamily: 'Open Sans',
+                      decoration: TextDecoration.none,
+                    ),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Login(),
-                      ),
-                    );
-                  },
                 ),
-              ),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(
+                //       horizontal: MediaQuery.of(context).size.width / 500,
+                //       vertical: MediaQuery.of(context).size.height / 5),
+                // padding: const EdgeInsets.fromLTRB(225, 650, 20, 10),
+                // child:
+                Material(
+                  child: InkWell(
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.amber,
+                          fontFamily: 'Open Sans',
+                          decoration: TextDecoration.none,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Login(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ],

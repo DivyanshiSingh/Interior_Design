@@ -74,25 +74,6 @@ class _LoginState extends State<Login> {
     FirebaseUser firebaseUser = await signInWithGoogle();
     print(firebaseUser.email);
     if (firebaseUser != null) {
-      // final QuerySnapshot result = await Firestore.instance
-      //     .collection("users")
-      //     .where("id", isEqualTo: firebaseUser.uid)
-      //     .getDocuments();
-      // print(result.documents[0]);
-      // final List<DocumentSnapshot> documents = result.documents;
-      // if (documents.length == 0) {
-      //   // insert the user to our collections.
-
-      //   Firestore.instance
-      //       .collection("users")
-      //       .document(firebaseUser.uid)
-      //       .setData({
-      //     "id": firebaseUser.uid,
-      //     "username": firebaseUser.displayName,
-      //     "profilePicture": firebaseUser.photoUrl,
-      //     "email": firebaseUser.email,
-      //   });
-
       await preferences.setString("id", firebaseUser.uid);
       await preferences.setString("username", firebaseUser.displayName);
       await preferences.setString("photoUrl", firebaseUser.photoUrl);
@@ -133,49 +114,59 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(40, 160, 10, 0),
-              child: Text(
-                "Login",
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  // fontStyle: FontStyle.italic,
-                  fontFamily: 'Open Sans',
-                  decoration: TextDecoration.none,
-                  fontSize: 37,
-                  color: Colors.black,
-                ),
-                textAlign: TextAlign.center,
+            Positioned(
+              top: 150,
+              // left: 25,
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Login",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontFamily: 'Open Sans',
+                      decoration: TextDecoration.none,
+                      fontSize: 37,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(45, 0, 0, 0),
+                    child: Text(
+                      "Please login to continue",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        // fontStyle: FontStyle.italic,
+                        fontFamily: 'Open Sans',
+                        decoration: TextDecoration.none,
+                        fontSize: 18,
+                        color: Colors.grey,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(40, 210, 10, 0),
-              child: Text(
-                "Please login to continue",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  // fontStyle: FontStyle.italic,
-                  fontFamily: 'Open Sans',
-                  decoration: TextDecoration.none,
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
+            SizedBox(height: 20),
             SingleChildScrollView(
               child: Form(
                 key: _formKey,
                 child: Column(
                   children: <Widget>[
+                    SizedBox(height: 250),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 260, 30, 0),
+                      padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                       child: Material(
                         child: TextFormField(
                           // controller: _emailTextController,
                           decoration: InputDecoration(
                             hintText: "email",
-                            icon: Icon(Icons.email),
+                            icon: Icon(
+                              Icons.email,
+                              size: 28,
+                            ),
                           ),
                           validator: (value) {
                             if (value.isEmpty) {
@@ -195,8 +186,9 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 20),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(28, 30, 30, 0),
+                      padding: const EdgeInsets.fromLTRB(25, 0, 40, 0),
                       child: Material(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white.withOpacity(0.8),
@@ -225,8 +217,11 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 30,
+                    ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
+                      padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                       child: Material(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.amber,
@@ -249,23 +244,21 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 30,
+                    ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
+                      padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                       child: Material(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.amber,
                         elevation: 0.0,
                         child: MaterialButton(
-                          onPressed:
-
-                              //  ====== by market at home ========
-                              () => handleSignIn()
-                                  .then((FirebaseUser user) =>
-                                      print(user.displayName))
-                                  .catchError((e) => print(e)),
-
+                          onPressed: () => handleSignIn()
+                              .then((FirebaseUser user) =>
+                                  print(user.displayName))
+                              .catchError((e) => print(e)),
                           minWidth: double.infinity,
-                          // MediaQuery.of(context).size.width,
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
@@ -297,8 +290,11 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 30,
+                    ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
+                      padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                       child: Material(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.amber,
@@ -359,39 +355,43 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+            SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.fromLTRB(80, 650, 20, 0),
               child: Material(
-                child: InkWell(
-                  child: Text(
-                    "Forgot password ?",
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.amber,
-                        fontFamily: 'Open Sans',
-                        decoration: TextDecoration.none,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ForgotScreen(),
+                child: Center(
+                  child: Row(
+                    children: <Widget>[
+                      InkWell(
+                        child: Text(
+                          "Forgot password ?",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.amber,
+                              fontFamily: 'Open Sans',
+                              decoration: TextDecoration.none,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ForgotScreen(),
+                            ),
+                          );
+                        },
                       ),
-                    );
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(170, 650, 20, 0),
-              child: Text(
-                "Don't worry, click here.",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black38,
-                  fontFamily: 'Open Sans',
-                  decoration: TextDecoration.none,
+                      Text(
+                        "Don't worry, click here.",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.black38,
+                          fontFamily: 'Open Sans',
+                          decoration: TextDecoration.none,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
