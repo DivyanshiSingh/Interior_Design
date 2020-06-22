@@ -272,6 +272,7 @@ class _SignupState extends State<Signup> {
           email: _email,
           password: _password,
         );
+        print(user.user);
         // user.sendEmailVerifcation();
         Navigator.of(context).pop();
         Navigator.pushReplacement(

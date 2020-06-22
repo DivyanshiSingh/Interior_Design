@@ -49,160 +49,125 @@ class _ChoiceState extends State<Choice> {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(vertical:150.0,horizontal:20.0),
+            margin: EdgeInsets.symmetric(vertical: 160.0, horizontal: 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Center(
-                child:  Text(
-                  'Help us improve your',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    // fontStyle: FontStyle.italic,
-                    fontFamily: 'Open Sans',
-                    decoration: TextDecoration.none,
-                    fontSize: 30,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Center(
-                child: Text(
-                  "Experience!",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    // fontStyle: FontStyle.italic,
-                    fontFamily: 'Open Sans',
-                    decoration: TextDecoration.none,
-                    fontSize: 30,
-                    color: Colors.black,
-                  ),
-                  textAlign: TextAlign.center,
-                )
-              ),
-              Center(
-                child: Text(
-                  "What are you looking for?",
-                  style: TextStyle(
-                    fontFamily: 'Open Sans',
-                    decoration: TextDecoration.none,
-                    fontSize: 20,
-                    color: Colors.black38,
-                  ),
-                  textAlign: TextAlign.center,
-                )
-              )
-            ]
-          ),
-              ],
-            )
-          ),
-          
-          Container(
-            margin: EdgeInsets.symmetric(vertical:250),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Material(
-                    child: DropdownButton<String>(
-                  hint: Text(
-                    'select an option',
-                  ),
-                  value: dropdownValue,
-                  icon: Icon(
-                    Icons.arrow_drop_down,
-                    color: Colors.black,
-                  ),
-                  iconSize: 24,
-                  elevation: 16,
-                  onChanged: (String newValue) {
-                    setState(() {
-                      dropdownValue = newValue;
-                    });
-                  },
-                  items: <String>['I am a buyer', 'I am a designer']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.grade,
-                            color: Colors.lightGreen,
-                          ),
-                          SizedBox(width: 10,),
-                          Text(
-                            value,
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ],
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 30,
                       ),
-                    );
-                  }).toList(),
-                ),
-              ),
+                      Center(
+                        child: Text(
+                          'Help us improve your',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            // fontStyle: FontStyle.italic,
+                            fontFamily: 'Open Sans',
+                            decoration: TextDecoration.none,
+                            fontSize: 30,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                        child: Text(
+                          "Experience!",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            // fontStyle: FontStyle.italic,
+                            fontFamily: 'Open Sans',
+                            decoration: TextDecoration.none,
+                            fontSize: 30,
+                            color: Colors.black,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                          child: Text(
+                        "What are you looking for?",
+                        style: TextStyle(
+                          fontFamily: 'Open Sans',
+                          decoration: TextDecoration.none,
+                          fontSize: 20,
+                          color: Colors.black38,
+                        ),
+                        textAlign: TextAlign.center,
+                      ))
+                    ]),
               ],
-              ),
-            ],
+            ),
           ),
-          ),
-          
-          Padding(                            
-            padding: const EdgeInsets.fromLTRB(120, 330, 0, 0),
+          Positioned(
+            top: 100,
+            left: 100,
             child: Container(
-              height: 40,
-              decoration: new BoxDecoration(
-                color: Colors.transparent,
-              ),
-              child: Material(
-                child: DropdownButton<String>(
-                  hint: Text(
-                    'select an option',
-                  ),
-                  value: dropdownValue,
-                  icon: Icon(
-                    Icons.arrow_drop_down,
-                    color: Colors.black,
-                  ),
-                  iconSize: 24,
-                  elevation: 16,
-                  onChanged: (String newValue) {
-                    setState(() {
-                      dropdownValue = newValue;
-                    });
-                  },
-                  items: <String>['I am a buyer', 'I am a designer']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.grade,
-                            color: Colors.lightGreen,
+              margin: EdgeInsets.symmetric(vertical: 250),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Material(
+                        child: DropdownButton<String>(
+                          hint: Text(
+                            'select an option',
                           ),
-                          SizedBox(width: 10,),
-                          Text(
-                            value,
-                            style: TextStyle(color: Colors.black),
+                          value: dropdownValue,
+                          icon: Icon(
+                            Icons.arrow_drop_down,
+                            color: Colors.black,
                           ),
-                        ],
+                          iconSize: 24,
+                          elevation: 16,
+                          onChanged: (String newValue) {
+                            setState(() {
+                              dropdownValue = newValue;
+                            });
+                          },
+                          items: <String>['I am a buyer', 'I am a designer']
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.grade,
+                                    color: Colors.lightGreen,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    value,
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }).toList(),
+                        ),
                       ),
-                    );
-                  }).toList(),
-                ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
           if (dropdownValue == "I am a designer") ...[
+            SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.fromLTRB(25, 400, 0, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Text(
                 "Discover our world of interior designer available to hire per project, send messages and control your finance.",
                 style: TextStyle(
@@ -213,16 +178,16 @@ class _ChoiceState extends State<Choice> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 100,
+            ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 585, 20, 40),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 40),
               child: SizedBox.expand(
                 child: RaisedButton(
                   color: Colors.amber,
                   textColor: Colors.white,
-                  // disabledColor: Colors.grey,
-                  // disabledTextColor: Colors.black,
                   padding: EdgeInsets.all(8.0),
-                  // splashColor: Colors.blueAccent,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -238,42 +203,49 @@ class _ChoiceState extends State<Choice> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(100, 650, 20, 10),
-              child: Text(
-                "Already have an account?",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black38,
-                  fontFamily: 'Open Sans',
-                  decoration: TextDecoration.none,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(225, 650, 20, 10),
-              child: Material(
-                child: InkWell(
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.amber,
-                        fontFamily: 'Open Sans',
-                        decoration: TextDecoration.none,
-                        fontWeight: FontWeight.bold),
+            // Padding(
+            //   padding: const EdgeInsets.fromLTRB(100, 650, 20, 10),
+            SizedBox(height: 10),
+            Center(
+                child: Row(
+              children: <Widget>[
+                Text(
+                  "Already have an account?",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.black38,
+                    fontFamily: 'Open Sans',
+                    decoration: TextDecoration.none,
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => FreelancerLogin(),
-                      ),
-                    );
-                  },
                 ),
-              ),
-            ),
+                Material(
+                  child: InkWell(
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.amber,
+                          fontFamily: 'Open Sans',
+                          decoration: TextDecoration.none,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FreelancerLogin(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            )),
+
+            // Padding(
+            //   padding: const EdgeInsets.fromLTRB(225, 650, 20, 10),
+            //   child:
+            // ),
           ],
           if (dropdownValue == "I am a buyer") ...[
             Padding(
@@ -354,4 +326,6 @@ class _ChoiceState extends State<Choice> {
       ),
     );
   }
+
+  sizedBox() {}
 }

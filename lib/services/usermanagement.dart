@@ -74,133 +74,114 @@ class _MyHomePageState extends State<MyHomePage> {
                         borderRadius: BorderRadius.all(Radius.circular(75.0)),
                       ),
                     ),
-                    SizedBox(height: 20.0),
-                    Text(
-                      'Amica',
-                      style: TextStyle(
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Montserrat'),
-                    ),
-                    SizedBox(height: 10.0),
-                    Text(
-                      'Crawley,GB',
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 17.0,
-                          // fontStyle: FontStyle.italic,
-                          fontFamily: 'Montserrat'),
-                    ),
-                    SizedBox(height: 20.0),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 220, 0),
-                      child: Text(
-                        'Insights',
-                        style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 23.0,
-                            fontWeight: FontWeight.bold,
-                            // fontStyle: FontStyle.italic,
-                            fontFamily: 'Montserrat'),
+                    SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(height: 20.0),
+                          Text(
+                            'Amica',
+                            style: TextStyle(
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat'),
+                          ),
+                          SizedBox(height: 10.0),
+                          Text(
+                            'Crawley,GB',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 17.0,
+                                fontFamily: 'Montserrat'),
+                          ),
+                          SizedBox(height: 20.0),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 220, 0),
+                            child: Text(
+                              'Insights',
+                              style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 23.0,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat'),
+                            ),
+                          ),
+                          SizedBox(height: 15.0),
+                          Divider(),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 210, 0),
+                            child: Text(
+                              'Projects listed',
+                              style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 15.0,
+                                  fontFamily: 'Montserrat'),
+                            ),
+                          ),
+                          Divider(),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 170, 0),
+                            child: Text(
+                              'Projects awarded (%)',
+                              style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 15.0,
+                                  fontFamily: 'Montserrat'),
+                            ),
+                          ),
+                          Divider(),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 220, 0),
+                            child: Text(
+                              'Freelancers',
+                              style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 15.0,
+                                  fontFamily: 'Montserrat'),
+                            ),
+                          ),
+                          Divider(),
+                          SizedBox(height: 20.0),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 240, 0),
+                            child: Text(
+                              'About',
+                              style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat'),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 60,
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                              child: TextFormField(
+                                decoration: new InputDecoration(
+                                    hintText: "add lines for yourself",
+                                    border: new OutlineInputBorder(
+                                      borderRadius: const BorderRadius.all(
+                                        const Radius.circular(10.0),
+                                      ),
+                                    ),
+                                    filled: true,
+                                    hintStyle: new TextStyle(
+                                        color: Colors.grey[500], fontSize: 13),
+                                    fillColor: Colors.white70),
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.save,
+                            ),
+                            onPressed: () {
+                              //
+                            },
+                          ),
+                        ],
                       ),
-                    ),
-                    SizedBox(height: 15.0),
-                    Divider(),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 210, 0),
-                      child: Text(
-                        'Projects listed',
-                        style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 15.0,
-                            // fontWeight: FontWeight.bold,
-                            // fontStyle: FontStyle.italic,
-                            fontFamily: 'Montserrat'),
-                      ),
-                    ),
-                    Divider(),
-                    // SizedBox(height: 20.0),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 170, 0),
-                      child: Text(
-                        'Projects awarded (%)',
-                        style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 15.0,
-                            // fontWeight: FontWeight.bold,
-                            // fontStyle: FontStyle.italic,
-                            fontFamily: 'Montserrat'),
-                      ),
-                    ),
-                    Divider(),
-                    // SizedBox(height: 20.0),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 220, 0),
-                      child: Text(
-                        'Freelancers',
-                        style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 15.0,
-                            // fontWeight: FontWeight.bold,
-                            // fontStyle: FontStyle.italic,
-                            fontFamily: 'Montserrat'),
-                      ),
-                    ),
-                    Divider(),
-                    SizedBox(height: 20.0),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 240, 0),
-                      child: Text(
-                        'About',
-                        style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                            // fontStyle: FontStyle.italic,
-                            fontFamily: 'Montserrat'),
-                      ),
-                    ),
-                    // Container(
-                    //     height: 30.0,
-                    //     width: 95.0,
-                    //     child: Material(
-                    //       borderRadius: BorderRadius.circular(20.0),
-                    //       shadowColor: Colors.greenAccent,
-                    //       color: Colors.green,
-                    //       elevation: 7.0,
-                    //       child: GestureDetector(
-                    //         onTap: () {},
-                    //         child: Center(
-                    //           child: Text(
-                    //             'Edit Name',
-                    //             style: TextStyle(
-                    //                 color: Colors.white,
-                    //                 fontFamily: 'Montserrat'),
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     )),
-                    // SizedBox(height: 25.0),
-                    // Container(
-                    //     height: 30.0,
-                    //     width: 95.0,
-                    //     child: Material(
-                    //       borderRadius: BorderRadius.circular(20.0),
-                    //       shadowColor: Colors.redAccent,
-                    //       color: Colors.red,
-                    //       elevation: 7.0,
-                    //       child: GestureDetector(
-                    //         onTap: () {},
-                    //         child: Center(
-                    //           child: Text(
-                    //             'Log out',
-                    //             style: TextStyle(
-                    //                 color: Colors.white,
-                    //                 fontFamily: 'Montserrat'),
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ))
+                    )
                   ],
                 ))
           ],
