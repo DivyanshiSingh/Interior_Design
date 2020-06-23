@@ -33,8 +33,8 @@ class _ChoiceState extends State<Choice> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Container(
-      height: double.infinity,
-      width: double.infinity,
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
       color: Colors.white,
       child: Stack(
         children: <Widget>[
@@ -172,88 +172,6 @@ class _ChoiceState extends State<Choice> {
           if (dropdownValue == "I am a designer") ...[
             SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-              child: Text(
-                "Discover our world of interior designer available to hire per project, send messages and control your finance.",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black38,
-                  fontFamily: 'Open Sans',
-                  decoration: TextDecoration.none,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 100,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 40),
-              child: SizedBox.expand(
-                child: RaisedButton(
-                  color: Colors.amber,
-                  textColor: Colors.white,
-                  padding: EdgeInsets.all(8.0),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Signup(),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    "SIGN UP",
-                    style: TextStyle(fontSize: 20.0),
-                  ),
-                ),
-              ),
-            ),
-            // Padding(
-            //   padding: const EdgeInsets.fromLTRB(100, 650, 20, 10),
-            SizedBox(height: 10),
-            Center(
-                child: Row(
-              children: <Widget>[
-                Text(
-                  "Already have an account?",
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black38,
-                    fontFamily: 'Open Sans',
-                    decoration: TextDecoration.none,
-                  ),
-                ),
-                Material(
-                  child: InkWell(
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.amber,
-                          fontFamily: 'Open Sans',
-                          decoration: TextDecoration.none,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FreelancerLogin(),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            )),
-
-            // Padding(
-            //   padding: const EdgeInsets.fromLTRB(225, 650, 20, 10),
-            //   child:
-            // ),
-          ],
-          if (dropdownValue == "I am a buyer") ...[
-            Padding(
               padding: const EdgeInsets.fromLTRB(20, 400, 20, 0),
               child: Text(
                 "Discover our world of interior designer available to hire per project, send messages and control your finance.",
@@ -267,12 +185,15 @@ class _ChoiceState extends State<Choice> {
             ),
             SizedBox(height: 30),
             // Spacer(),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width / 3,
-                  vertical: MediaQuery.of(context).size.height / 3),
+            // Padding(
+            //   padding: EdgeInsets.symmetric(
+            Positioned(
+              left: 0.07 * MediaQuery.of(context).size.width,
+              right: 0.07 * MediaQuery.of(context).size.width,
+              top: 6 * MediaQuery.of(context).size.height / 7,
               // padding: const EdgeInsets.fromLTRB(20, 585, 20, 50),
               child: SizedBox(
+                width: 0.9 * MediaQuery.of(context).size.width,
                 child: RaisedButton(
                   color: Colors.amber,
                   textColor: Colors.white,
@@ -298,10 +219,16 @@ class _ChoiceState extends State<Choice> {
             Row(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width / 6,
-                      vertical: MediaQuery.of(context).size.height / 5),
+                  padding: EdgeInsets.only(
+                    top: 0.95 * MediaQuery.of(context).size.height,
+                    left: 0.25 * MediaQuery.of(context).size.width,
+                    // right: 0.25 * MediaQuery.of(context).size.width,
+                  ),
+                  //       horizontal: MediaQuery.of(context).size.width / 7,
+                  //       vertical: MediaQuery.of(context).size.height / 3),
                   // padding: const EdgeInsets.fromLTRB(100, 650, 20, 10),
+                  // child:
+
                   child: Text(
                     "Already have an account?",
                     style: TextStyle(
@@ -312,31 +239,143 @@ class _ChoiceState extends State<Choice> {
                     ),
                   ),
                 ),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(
-                //       horizontal: MediaQuery.of(context).size.width / 500,
-                //       vertical: MediaQuery.of(context).size.height / 5),
-                // padding: const EdgeInsets.fromLTRB(225, 650, 20, 10),
-                // child:
-                Material(
-                  child: InkWell(
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.amber,
-                          fontFamily: 'Open Sans',
-                          decoration: TextDecoration.none,
-                          fontWeight: FontWeight.bold),
+                // ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 0.95 * MediaQuery.of(context).size.height,
+                    // left: 0.10 * MediaQuery.of(context).size.width,
+                  ),
+                  //       horizontal: MediaQuery.of(context).size.width / 500,
+                  //       vertical: MediaQuery.of(context).size.height / 5),
+                  // padding: const EdgeInsets.fromLTRB(225, 650, 20, 10),
+                  // child:
+
+                  child: Material(
+                    child: InkWell(
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.amber,
+                            fontFamily: 'Open Sans',
+                            decoration: TextDecoration.none,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FreelancerLogin(),
+                          ),
+                        );
+                      },
                     ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Login(),
-                        ),
-                      );
-                    },
+                  ),
+                ),
+              ],
+            ),
+          ],
+          if (dropdownValue == "I am a buyer") ...[
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 400, 20, 0),
+              child: Text(
+                "Discover our world of interior designer available to hire per project, send messages and control your finance.",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black38,
+                  fontFamily: 'Open Sans',
+                  decoration: TextDecoration.none,
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            // Spacer(),
+            // Padding(
+            //   padding: EdgeInsets.symmetric(
+            Positioned(
+              left: 0.07 * MediaQuery.of(context).size.width,
+              right: 0.07 * MediaQuery.of(context).size.width,
+              top: 6 * MediaQuery.of(context).size.height / 7,
+              // padding: const EdgeInsets.fromLTRB(20, 585, 20, 50),
+              child: SizedBox(
+                width: 0.9 * MediaQuery.of(context).size.width,
+                child: RaisedButton(
+                  color: Colors.amber,
+                  textColor: Colors.white,
+                  // disabledColor: Colors.grey,
+                  // disabledTextColor: Colors.black,
+                  padding: EdgeInsets.all(8.0),
+                  // splashColor: Colors.blueAccent,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Signup(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "SIGN UP",
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 0.95 * MediaQuery.of(context).size.height,
+                    left: 0.25 * MediaQuery.of(context).size.width,
+                    // right: 0.25 * MediaQuery.of(context).size.width,
+                  ),
+                  //       horizontal: MediaQuery.of(context).size.width / 7,
+                  //       vertical: MediaQuery.of(context).size.height / 3),
+                  // padding: const EdgeInsets.fromLTRB(100, 650, 20, 10),
+                  // child:
+
+                  child: Text(
+                    "Already have an account?",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.black38,
+                      fontFamily: 'Open Sans',
+                      decoration: TextDecoration.none,
+                    ),
+                  ),
+                ),
+                // ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 0.95 * MediaQuery.of(context).size.height,
+                    // left: 0.10 * MediaQuery.of(context).size.width,
+                  ),
+                  //       horizontal: MediaQuery.of(context).size.width / 500,
+                  //       vertical: MediaQuery.of(context).size.height / 5),
+                  // padding: const EdgeInsets.fromLTRB(225, 650, 20, 10),
+                  // child:
+
+                  child: Material(
+                    child: InkWell(
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.amber,
+                            fontFamily: 'Open Sans',
+                            decoration: TextDecoration.none,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Login(),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ],
@@ -347,5 +386,5 @@ class _ChoiceState extends State<Choice> {
     );
   }
 
-  sizedBox() {}
+  // sizedBox() {}
 }

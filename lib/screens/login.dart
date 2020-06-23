@@ -100,64 +100,74 @@ class _LoginState extends State<Login> {
         height: double.infinity,
         width: double.infinity,
         color: Colors.white,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              left: 200,
-              bottom: 500,
-              child: CircleAvatar(
-                backgroundColor: Colors.yellow,
-                radius: 130,
+        child: SingleChildScrollView(
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                left: 200,
+                bottom: 500,
                 child: CircleAvatar(
-                  backgroundColor: Colors.amber[400],
-                  radius: 100,
+                  backgroundColor: Colors.yellow,
+                  radius: 130,
+                  child: CircleAvatar(
+                    backgroundColor: Colors.amber[400],
+                    radius: 100,
+                  ),
                 ),
               ),
-            ),
-            Positioned(
-              top: 150,
-              // left: 25,
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    "Login",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontFamily: 'Open Sans',
-                      decoration: TextDecoration.none,
-                      fontSize: 37,
-                      color: Colors.black,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(45, 0, 0, 0),
-                    child: Text(
-                      "Please login to continue",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        // fontStyle: FontStyle.italic,
-                        fontFamily: 'Open Sans',
-                        decoration: TextDecoration.none,
-                        fontSize: 18,
-                        color: Colors.grey,
+              Positioned(
+                top: 150,
+                // left: 25,
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 0.1 * MediaQuery.of(context).size.width),
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Open Sans',
+                          decoration: TextDecoration.none,
+                          fontSize: 37,
+                          color: Colors.black,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
-                  ),
-                ],
+                    SizedBox(height: 10),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 0.1 * MediaQuery.of(context).size.width),
+                      child: Text(
+                        "Please login to continue",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          // fontStyle: FontStyle.italic,
+                          fontFamily: 'Open Sans',
+                          decoration: TextDecoration.none,
+                          fontSize: 18,
+                          color: Colors.grey,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            SingleChildScrollView(
-              child: Form(
+              SizedBox(height: 20),
+              // SingleChildScrollView(
+              //   child:
+              Form(
                 key: _formKey,
                 child: Column(
                   children: <Widget>[
                     SizedBox(height: 250),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                      padding: EdgeInsets.only(
+                        left: 0.07 * MediaQuery.of(context).size.width,
+                        right: 0.07 * MediaQuery.of(context).size.width,
+                      ),
                       child: Material(
                         child: TextFormField(
                           // controller: _emailTextController,
@@ -165,7 +175,7 @@ class _LoginState extends State<Login> {
                             hintText: "email",
                             icon: Icon(
                               Icons.email,
-                              size: 28,
+                              // size: 28,
                             ),
                           ),
                           validator: (value) {
@@ -188,7 +198,10 @@ class _LoginState extends State<Login> {
                     ),
                     SizedBox(height: 20),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(25, 0, 40, 0),
+                      padding: EdgeInsets.only(
+                        left: 0.07 * MediaQuery.of(context).size.width,
+                        right: 0.07 * MediaQuery.of(context).size.width,
+                      ),
                       child: Material(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white.withOpacity(0.8),
@@ -201,7 +214,7 @@ class _LoginState extends State<Login> {
                               hintText: "password",
                               icon: Icon(
                                 Icons.lock,
-                                size: 28,
+                                // size: 28,
                               ),
                             ),
                             validator: (value) {
@@ -220,182 +233,184 @@ class _LoginState extends State<Login> {
                     SizedBox(
                       height: 30,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                      child: Material(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.amber,
-                        elevation: 0.0,
-                        child: MaterialButton(
-                          onPressed: () {
-                            signIn();
-                          },
-                          minWidth: double.infinity,
-                          // MediaQuery.of(context).size.width,
-                          child: Text(
-                            "Login",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
+                    Material(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.amber,
+                      elevation: 0.0,
+                      child: MaterialButton(
+                        onPressed: () {
+                          signIn();
+                        },
+                        minWidth: 0.85 * MediaQuery.of(context).size.width,
+                        // MediaQuery.of(context).size.width,
+                        child: Text(
+                          "Login",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Material(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.amber,
+                      elevation: 0.0,
+                      child: MaterialButton(
+                        onPressed: () => handleSignIn()
+                            .then(
+                                (FirebaseUser user) => print(user.displayName))
+                            .catchError((e) => print(e)),
+                        minWidth: 0.85 * MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.only(
+                                  left:
+                                      0.03 * MediaQuery.of(context).size.width),
+                              decoration: BoxDecoration(
+                                color: Colors.amber,
+                              ),
+                              child: Image.asset(
+                                'lib/images/google.png',
+                                height: 33.0,
+                              ),
                             ),
-                          ),
+                            Container(
+                              padding: EdgeInsets.only(
+                                  left:
+                                      0.03 * MediaQuery.of(context).size.width),
+                              child: Text(
+                                "Login with Google",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
                     SizedBox(
                       height: 30,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                      child: Material(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.amber,
-                        elevation: 0.0,
-                        child: MaterialButton(
-                          onPressed: () => handleSignIn()
-                              .then((FirebaseUser user) =>
-                                  print(user.displayName))
-                              .catchError((e) => print(e)),
-                          minWidth: double.infinity,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Container(
-                                padding: EdgeInsets.fromLTRB(0.0, 8, 27, 8),
-                                decoration: BoxDecoration(
-                                  color: Colors.amber,
-                                ),
-                                child: Image.asset(
-                                  'lib/images/google.png',
-                                  height: 33.0,
-                                ),
-                              ),
-                              Container(
-                                padding:
-                                    EdgeInsets.only(left: 0.0, right: 10.0),
-                                child: Text(
-                                  "Login with Google",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 25,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                      child: Material(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.amber,
-                        elevation: 0.0,
-                        child: MaterialButton(
-                          onPressed: () {
-                            //  fbLogin.logInWithReadPermissions(['email','public_profile']).then((result){
-                            //    switch(result.status){
-                            //      case FacebookLoginStatus.loggedIn;
-                            //      FirebaseAuth.instance.signInWithFacebook(
-                            //        accessToken: result.accessToken.token
-                            //      ).then((signedInUser){
-                            //        print('Signed in as ${ signedInUser.displayName} ');
-                            //        Navigator.of(context).pushReplacement('/Home');
-                            //      }).catchError((e){
-                            //        print(e);
-                            //      },);}
+                    Material(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.amber,
+                      elevation: 0.0,
+                      child: MaterialButton(
+                        onPressed: () {
+                          //  fbLogin.logInWithReadPermissions(['email','public_profile']).then((result){
+                          //    switch(result.status){
+                          //      case FacebookLoginStatus.loggedIn;
+                          //      FirebaseAuth.instance.signInWithFacebook(
+                          //        accessToken: result.accessToken.token
+                          //      ).then((signedInUser){
+                          //        print('Signed in as ${ signedInUser.displayName} ');
+                          //        Navigator.of(context).pushReplacement('/Home');
+                          //      }).catchError((e){
+                          //        print(e);
+                          //      },);}
 
-                            //  }).catchError((e){
-                            //    print(e);
+                          //  }).catchError((e){
+                          //    print(e);
 
-                            //  });
-                          },
-                          minWidth: double.infinity,
-                          // MediaQuery.of(context).size.width,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Container(
-                                padding: EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.amber,
-                                ),
-                                child: Image.asset(
-                                  'lib/images/facebook.png',
-                                  height: 33.0,
-                                ),
-                              ),
-                              Container(
-                                padding:
-                                    EdgeInsets.only(left: 10.0, right: 10.0),
-                                child: Text(
-                                  "Login with facebook",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 25,
+                          //  });
+                        },
+                        minWidth: 0.85 * MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.only(
+                                  // left:
+                                  //     0.01 * MediaQuery.of(context).size.width
                                   ),
+                              decoration: BoxDecoration(
+                                color: Colors.amber,
+                              ),
+                              child: Image.asset(
+                                'lib/images/facebook.png',
+                                height: 33.0,
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(
+                                  left:
+                                      0.01 * MediaQuery.of(context).size.width),
+                              child: Text(
+                                "Login with facebook",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-            SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(80, 650, 20, 0),
-              child: Material(
-                child: Center(
-                  child: Row(
-                    children: <Widget>[
-                      InkWell(
-                        child: Text(
-                          "Forgot password ?",
+              // ),
+              // SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.only(
+                  left: 0.2 * MediaQuery.of(context).size.width,
+                  // right: 0.2 * MediaQuery.of(context).size.width,
+                  top: 0.96 * MediaQuery.of(context).size.height,
+                ),
+                child: Material(
+                  child: Center(
+                    child: Row(
+                      children: <Widget>[
+                        InkWell(
+                          child: Text(
+                            "Forgot password ?",
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.amber,
+                                fontFamily: 'Open Sans',
+                                decoration: TextDecoration.none,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ForgotScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        Text(
+                          "Don't worry, click here.",
                           style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.amber,
-                              fontFamily: 'Open Sans',
-                              decoration: TextDecoration.none,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 12,
+                            color: Colors.black38,
+                            fontFamily: 'Open Sans',
+                            decoration: TextDecoration.none,
+                          ),
                         ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ForgotScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                      Text(
-                        "Don't worry, click here.",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.black38,
-                          fontFamily: 'Open Sans',
-                          decoration: TextDecoration.none,
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
