@@ -38,8 +38,8 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         color: Colors.white,
         child: Stack(
           children: <Widget>[
@@ -215,7 +215,8 @@ class _SignupState extends State<Signup> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(40, 50, 30, 0),
+                      padding: EdgeInsets.only(
+                          top: 0.03 * MediaQuery.of(context).size.height),
                       child: Material(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.amber,
@@ -243,14 +244,20 @@ class _SignupState extends State<Signup> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(95, 650, 20, 0),
-              child: Text(
-                "InsideOut presents you artified walls",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black38,
-                  fontFamily: 'Open Sans',
-                  decoration: TextDecoration.none,
+              padding: EdgeInsets.only(
+                top: 0.96 * MediaQuery.of(context).size.height,
+                // left: 0.15 * MediaQuery.of(context).size.width,
+                // right: 0.15 * MediaQuery.of(context).size.width,
+              ),
+              child: Center(
+                child: Text(
+                  "InsideOut presents you artified walls",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.black38,
+                    fontFamily: 'Open Sans',
+                    decoration: TextDecoration.none,
+                  ),
                 ),
               ),
             ),

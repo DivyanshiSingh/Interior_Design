@@ -28,7 +28,10 @@ class _PagefiveState extends State<Pagefive> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: EdgeInsets.only(
+                    top: 0.01 * MediaQuery.of(context).size.height,
+                    left: 0.05 * MediaQuery.of(context).size.width,
+                    right: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   'Save items to read later or shortlist your favourites',
                   style: TextStyle(
@@ -38,7 +41,9 @@ class _PagefiveState extends State<Pagefive> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(250, 90, 5, 5),
+                padding: EdgeInsets.only(
+                    top: 0.05 * MediaQuery.of(context).size.height,
+                    left: 0.7 * MediaQuery.of(context).size.width),
                 child: FloatingActionButton(
                   onPressed: () {
                     // Navigator.push(

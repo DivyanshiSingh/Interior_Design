@@ -42,7 +42,9 @@ class _PagetwoState extends State<Pagetwo> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(250, 90, 5, 5),
+                padding: EdgeInsets.only(
+                    top: 0.05 * MediaQuery.of(context).size.height,
+                    left: 0.7 * MediaQuery.of(context).size.width),
                 child: FloatingActionButton(
                   onPressed: () {
                     Navigator.push(

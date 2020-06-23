@@ -216,7 +216,8 @@ class _FreelancerSignupState extends State<FreelancerSignup> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(40, 50, 30, 0),
+                      padding: EdgeInsets.only(
+                          top: 0.03 * MediaQuery.of(context).size.height),
                       child: Material(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.amber,
@@ -244,14 +245,18 @@ class _FreelancerSignupState extends State<FreelancerSignup> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(95, 650, 20, 0),
-              child: Text(
-                "InsideOut presents you artified walls",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black38,
-                  fontFamily: 'Open Sans',
-                  decoration: TextDecoration.none,
+              padding: EdgeInsets.only(
+                top: 0.96 * MediaQuery.of(context).size.height,
+              ),
+              child: Center(
+                child: Text(
+                  "InsideOut presents you artified walls",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.black38,
+                    fontFamily: 'Open Sans',
+                    decoration: TextDecoration.none,
+                  ),
                 ),
               ),
             ),

@@ -28,9 +28,12 @@ class _PagefourState extends State<Pagefour> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.only(
+                    top: 0.01 * MediaQuery.of(context).size.height,
+                    left: 0.05 * MediaQuery.of(context).size.width,
+                    right: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
-                  'Financial information will appear here after a ',
+                  'Financial information will appear here after a project is completed',
                   style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey[500],
@@ -38,17 +41,9 @@ class _PagefourState extends State<Pagefour> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(
-                  'project is completed',
-                  style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.w500),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(250, 60, 5, 5),
+                padding: EdgeInsets.only(
+                    top: 0.05 * MediaQuery.of(context).size.height,
+                    left: 0.7 * MediaQuery.of(context).size.width),
                 child: FloatingActionButton(
                   onPressed: () {
                     // Navigator.push(

@@ -29,27 +29,31 @@ class _DPagetwoState extends State<DPagetwo> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: EdgeInsets.only(
+                    top: 0.02 * MediaQuery.of(context).size.height,
+                    left: 0.08 * MediaQuery.of(context).size.width),
                 child: Text(
-                  'Projects will start appearing here once you get ',
+                  'Projects will start appearing here once you get invited by the buyers.',
                   style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey[500],
                       fontWeight: FontWeight.w500),
                 ),
               ),
+              // Padding(
+              //   padding: const EdgeInsets.all(5.0),
+              //   child: Text(
+              //     'invited by the buyers.',
+              //     style: TextStyle(
+              //         fontSize: 16,
+              //         color: Colors.grey[500],
+              //         fontWeight: FontWeight.w500),
+              //   ),
+              // ),
               Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(
-                  'invited by the buyers.',
-                  style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.w500),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(250, 60, 5, 5),
+                padding: EdgeInsets.only(
+                    top: 0.05 * MediaQuery.of(context).size.height,
+                    left: 0.7 * MediaQuery.of(context).size.width),
                 child: FloatingActionButton(
                   onPressed: () {
                     Navigator.push(
