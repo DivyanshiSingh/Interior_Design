@@ -41,10 +41,12 @@ class _SettingsState extends State<Settings> {
                     // );
                   },
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 250, 0),
+                    padding: EdgeInsets.only(
+                        top: 0.01 * MediaQuery.of(context).size.height,
+                        right: 0.72 * MediaQuery.of(context).size.width),
                     child: Text(
                       "Account",
-                      style: TextStyle(fontSize: 20.0, color: Colors.grey[700]),
+                      style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
                     ),
                   ),
                 ),
@@ -67,10 +69,12 @@ class _SettingsState extends State<Settings> {
                   // );
                 },
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 280, 0),
+                  padding: EdgeInsets.only(
+                      top: 0.01 * MediaQuery.of(context).size.height,
+                      right: 0.78 * MediaQuery.of(context).size.width),
                   child: Text(
                     "Help",
-                    style: TextStyle(fontSize: 20.0, color: Colors.grey[700]),
+                    style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
                   ),
                 ),
               ),
@@ -92,10 +96,12 @@ class _SettingsState extends State<Settings> {
                   // );
                 },
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 170, 0),
+                  padding: EdgeInsets.only(
+                      top: 0.01 * MediaQuery.of(context).size.height,
+                      right: 0.55 * MediaQuery.of(context).size.width),
                   child: Text(
                     "Terms & Conditions",
-                    style: TextStyle(fontSize: 20.0, color: Colors.grey[700]),
+                    style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
                   ),
                 ),
               ),
@@ -113,10 +119,12 @@ class _SettingsState extends State<Settings> {
                   //     MaterialPageRoute(builder: (context) => FeedbackPage()));
                 },
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 190, 0),
+                  padding: EdgeInsets.only(
+                      top: 0.01 * MediaQuery.of(context).size.height,
+                      right: 0.58 * MediaQuery.of(context).size.width),
                   child: Text(
                     "Leave Feedback",
-                    style: TextStyle(fontSize: 20.0, color: Colors.grey[700]),
+                    style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
                   ),
                 ),
               ),

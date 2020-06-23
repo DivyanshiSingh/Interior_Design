@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-        body: new Stack(
+        body: Stack(
           children: <Widget>[
             ClipPath(
               child: Container(color: Colors.amber[100].withOpacity(0.8)),
@@ -67,120 +67,137 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 120.0,
                       decoration: BoxDecoration(
                         color: Colors.amber,
-                        // image: DecorationImage(
-                        //     image: NetworkImage(
-                        //         'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
-                        //     fit: BoxFit.cover),
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg'),
+                            fit: BoxFit.cover),
                         borderRadius: BorderRadius.all(Radius.circular(75.0)),
                       ),
                     ),
-                    SingleChildScrollView(
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(height: 20.0),
-                          Text(
-                            'Amica',
-                            style: TextStyle(
-                                fontSize: 30.0,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat'),
-                          ),
-                          SizedBox(height: 10.0),
-                          Text(
-                            'Crawley,GB',
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 17.0,
-                                fontFamily: 'Montserrat'),
-                          ),
-                          SizedBox(height: 20.0),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 220, 0),
-                            child: Text(
-                              'Insights',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontSize: 23.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Montserrat'),
-                            ),
-                          ),
-                          SizedBox(height: 15.0),
-                          Divider(),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 210, 0),
-                            child: Text(
-                              'Projects listed',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat'),
-                            ),
-                          ),
-                          Divider(),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 170, 0),
-                            child: Text(
-                              'Projects awarded (%)',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat'),
-                            ),
-                          ),
-                          Divider(),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 220, 0),
-                            child: Text(
-                              'Freelancers',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontSize: 15.0,
-                                  fontFamily: 'Montserrat'),
-                            ),
-                          ),
-                          Divider(),
-                          SizedBox(height: 20.0),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 240, 0),
-                            child: Text(
-                              'About',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Montserrat'),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 60,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                              child: TextFormField(
-                                decoration: new InputDecoration(
-                                    hintText: "add lines for yourself",
-                                    border: new OutlineInputBorder(
-                                      borderRadius: const BorderRadius.all(
-                                        const Radius.circular(10.0),
-                                      ),
-                                    ),
-                                    filled: true,
-                                    hintStyle: new TextStyle(
-                                        color: Colors.grey[500], fontSize: 13),
-                                    fillColor: Colors.white70),
+                    Column(
+                      children: <Widget>[
+                        SizedBox(height: 20.0),
+                        Text(
+                          'Tom Cruise',
+                          style: TextStyle(
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat'),
+                        ),
+                        SizedBox(height: 10.0),
+                        Text(
+                          'Crawley,GB',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 15.0,
+                              fontFamily: 'Montserrat'),
+                        ),
+                        SingleChildScrollView(
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(height: 5.0),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top:
+                                      0.01 * MediaQuery.of(context).size.height,
+                                ),
+                                child: Text(
+                                  'Insights',
+                                  style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 23.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Montserrat'),
+                                ),
                               ),
-                            ),
+                              SizedBox(height: 5.0),
+                              Divider(),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(0, 0, 210, 0),
+                                child: Text(
+                                  'Projects listed',
+                                  style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 15.0,
+                                      fontFamily: 'Montserrat'),
+                                ),
+                              ),
+                              Divider(),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(0, 0, 170, 0),
+                                child: Text(
+                                  'Projects awarded (%)',
+                                  style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 15.0,
+                                      fontFamily: 'Montserrat'),
+                                ),
+                              ),
+                              Divider(),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(0, 0, 220, 0),
+                                child: Text(
+                                  'Freelancers',
+                                  style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 15.0,
+                                      fontFamily: 'Montserrat'),
+                                ),
+                              ),
+                              Divider(),
+                              Row(
+                                children: <Widget>[
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    child: Text(
+                                      'About',
+                                      style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat'),
+                                    ),
+                                  ),
+                                  IconButton(
+                                    icon: Icon(
+                                      Icons.save,
+                                      color: Colors.amber,
+                                    ),
+                                    onPressed: () {
+                                      //
+                                    },
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 60,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                  child: TextFormField(
+                                    decoration: new InputDecoration(
+                                        hintText: "add lines for yourself",
+                                        border: new OutlineInputBorder(
+                                          borderRadius: const BorderRadius.all(
+                                            const Radius.circular(10.0),
+                                          ),
+                                        ),
+                                        filled: true,
+                                        hintStyle: new TextStyle(
+                                            color: Colors.grey[500],
+                                            fontSize: 13),
+                                        fillColor: Colors.white70),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.save,
-                            ),
-                            onPressed: () {
-                              //
-                            },
-                          ),
-                        ],
-                      ),
+                        )
+                      ],
                     )
                   ],
                 ))
