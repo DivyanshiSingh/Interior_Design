@@ -89,68 +89,6 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
             child: new Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // new Padding(
-                //   padding: const EdgeInsets.only(top: 20.0),
-                //   child: new DropdownButton(
-                //       hint: new Text('LOAD PATH FROM'),
-                //       value: _pickingType,
-                //       items: <DropdownMenuItem>[
-                //         new DropdownMenuItem(
-                //           child: new Text('FROM AUDIO'),
-                //           value: FileType.audio,
-                //         ),
-                //         new DropdownMenuItem(
-                //           child: new Text('FROM IMAGE'),
-                //           value: FileType.image,
-                //         ),
-                //         new DropdownMenuItem(
-                //           child: new Text('FROM VIDEO'),
-                //           value: FileType.video,
-                //         ),
-                //         new DropdownMenuItem(
-                //           child: new Text('FROM MEDIA'),
-                //           value: FileType.media,
-                //         ),
-                //         new DropdownMenuItem(
-                //           child: new Text('FROM ANY'),
-                //           value: FileType.any,
-                //         ),
-                //         new DropdownMenuItem(
-                //           child: new Text('CUSTOM FORMAT'),
-                //           value: FileType.custom,
-                //         ),
-                //       ],
-                //       onChanged: (value) => setState(() {
-                //             _pickingType = value;
-                //             if (_pickingType != FileType.custom) {
-                //               _controller.text = _extension = '';
-                //             }
-                //           })),
-                // ),
-                // new ConstrainedBox(
-                //   constraints: BoxConstraints.tightFor(width: 100.0),
-                //   child: _pickingType == FileType.custom
-                //       ? new TextFormField(
-                //           maxLength: 15,
-                //           autovalidate: true,
-                //           controller: _controller,
-                //           decoration:
-                //               InputDecoration(labelText: 'File extension'),
-                //           keyboardType: TextInputType.text,
-                //           textCapitalization: TextCapitalization.none,
-                //         )
-                //       : new Container(),
-                // ),
-                // new ConstrainedBox(
-                //   constraints: BoxConstraints.tightFor(width: 200.0),
-                //   child: new SwitchListTile.adaptive(
-                //     title: new Text('Pick multiple files',
-                //         textAlign: TextAlign.right),
-                //     onChanged: (bool value) =>
-                //         setState(() => _multiPick = value),
-                //     value: _multiPick,
-                //   ),
-                // ),
                 new Padding(
                   padding: const EdgeInsets.only(top: 50.0, bottom: 20.0),
                   child: Column(
@@ -159,14 +97,6 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
                         onPressed: () => _openFileExplorer(),
                         child: new Text("Open file picker"),
                       ),
-                      // new RaisedButton(
-                      //   onPressed: () => _selectFolder(),
-                      //   child: new Text("Pick folder"),
-                      // ),
-                      // new RaisedButton(
-                      //   onPressed: () => _clearCachedFiles(),
-                      //   child: new Text("Clear temporary files"),
-                      // ),
                     ],
                   ),
                 ),

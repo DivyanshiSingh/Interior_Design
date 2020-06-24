@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:interiordesign/Designer/designerservices/designerSelling/dstartSelling.dart';
+import 'package:interiordesign/Designer/designerservices/designerApplication/dstartSelling.dart';
+
 import 'package:interiordesign/Designer/freelancerlogin.dart';
 import 'package:interiordesign/screens/login.dart';
 

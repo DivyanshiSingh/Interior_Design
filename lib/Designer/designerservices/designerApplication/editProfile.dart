@@ -88,9 +88,9 @@ class _EditProfileState extends State<EditProfile> {
         color: Colors.white,
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+              Center(
                 child: Text(
                   "Edit your Profile",
                   style: TextStyle(
@@ -99,8 +99,9 @@ class _EditProfileState extends State<EditProfile> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+              Center(
                 child: Text(
                   "Fill in your profile information",
                   style: TextStyle(
@@ -110,8 +111,11 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(height: 15),
+
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 25, 250, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "FIRST NAME",
                   style: TextStyle(
@@ -123,7 +127,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 40,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  padding: EdgeInsets.only(
+                      left: 0.04 * MediaQuery.of(context).size.width,
+                      right: 0.04 * MediaQuery.of(context).size.width),
                   child: TextFormField(
                     decoration: new InputDecoration(
                         border: new OutlineInputBorder(
@@ -137,8 +143,10 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(height: 15),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 250, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "LAST NAME",
                   style: TextStyle(
@@ -150,7 +158,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 40,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  padding: EdgeInsets.only(
+                      left: 0.04 * MediaQuery.of(context).size.width,
+                      right: 0.04 * MediaQuery.of(context).size.width),
                   child: TextFormField(
                     decoration: new InputDecoration(
                         border: new OutlineInputBorder(
@@ -164,8 +174,10 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(height: 15),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 25, 120, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "DO YOU REPRESENT A COMPANY?",
                   style: TextStyle(
@@ -210,8 +222,10 @@ class _EditProfileState extends State<EditProfile> {
                   },
                 ),
               ),
+              SizedBox(height: 15),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 260, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "JOB TITLE",
                   style: TextStyle(
@@ -223,7 +237,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 40,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  padding: EdgeInsets.only(
+                      left: 0.04 * MediaQuery.of(context).size.width,
+                      right: 0.04 * MediaQuery.of(context).size.width),
                   child: TextFormField(
                     decoration: new InputDecoration(
                         hintText: "Example: Designer...",
@@ -239,8 +255,10 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(height: 15),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 130, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "COVER IMAGE (RECOMMENDED)",
                   style: TextStyle(
@@ -249,19 +267,22 @@ class _EditProfileState extends State<EditProfile> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              Container(
-                height: 150,
-                width: 340,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.amber[100],
-                ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(right: 160),
-                        child: FlatButton(
+              Padding(
+                padding: EdgeInsets.only(
+                    left: 0.04 * MediaQuery.of(context).size.width,
+                    right: 0.04 * MediaQuery.of(context).size.width),
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.amber[100],
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        FlatButton(
                           color: Colors.amber[100],
                           onPressed: () => _openFileExplorer(),
                           child: new Text(
@@ -271,58 +292,62 @@ class _EditProfileState extends State<EditProfile> {
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                      ),
-                      new Builder(
-                        builder: (BuildContext context) => _loadingPath
-                            ? Padding(
-                                padding: const EdgeInsets.only(bottom: 10.0),
-                                child: const CircularProgressIndicator())
-                            : _path != null || _paths != null
-                                ? new Container(
-                                    padding:
-                                        const EdgeInsets.only(bottom: 30.0),
-                                    height: MediaQuery.of(context).size.height *
-                                        0.50,
-                                    child: new Scrollbar(
-                                        child: new ListView.separated(
-                                      itemCount:
-                                          _paths != null && _paths.isNotEmpty
-                                              ? _paths.length
-                                              : 1,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        final bool isMultiPath =
-                                            _paths != null && _paths.isNotEmpty;
-                                        final String name = 'File $index: ' +
-                                            (isMultiPath
-                                                ? _paths.keys.toList()[index]
-                                                : _fileName ?? '...');
-                                        final path = isMultiPath
-                                            ? _paths.values
-                                                .toList()[index]
-                                                .toString()
-                                            : _path;
+                        new Builder(
+                          builder: (BuildContext context) => _loadingPath
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 10.0),
+                                  child: const CircularProgressIndicator())
+                              : _path != null || _paths != null
+                                  ? new Container(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 30.0),
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.50,
+                                      child: new Scrollbar(
+                                          child: new ListView.separated(
+                                        itemCount:
+                                            _paths != null && _paths.isNotEmpty
+                                                ? _paths.length
+                                                : 1,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          final bool isMultiPath =
+                                              _paths != null &&
+                                                  _paths.isNotEmpty;
+                                          final String name = 'File $index: ' +
+                                              (isMultiPath
+                                                  ? _paths.keys.toList()[index]
+                                                  : _fileName ?? '...');
+                                          final path = isMultiPath
+                                              ? _paths.values
+                                                  .toList()[index]
+                                                  .toString()
+                                              : _path;
 
-                                        return new ListTile(
-                                          title: new Text(
-                                            name,
-                                          ),
-                                          subtitle: new Text(path),
-                                        );
-                                      },
-                                      separatorBuilder:
-                                          (BuildContext context, int index) =>
-                                              new Divider(),
-                                    )),
-                                  )
-                                : new Container(),
-                      ),
-                    ],
+                                          return new ListTile(
+                                            title: new Text(
+                                              name,
+                                            ),
+                                            subtitle: new Text(path),
+                                          );
+                                        },
+                                        separatorBuilder:
+                                            (BuildContext context, int index) =>
+                                                new Divider(),
+                                      )),
+                                    )
+                                  : new Container(),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
+              SizedBox(height: 15),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 110, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "PROFILE PICTURE (RECOMMENDED)",
                   style: TextStyle(
@@ -331,23 +356,22 @@ class _EditProfileState extends State<EditProfile> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              Container(
-                height: 150,
-                width: 340,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.amber[100],
-                  // boxShadow: [
-                  //   BoxShadow(color: Colors.green, spreadRadius: 3),
-                  // ],
-                ),
-                // color: Colors.amber[100],
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(right: 160),
-                        child: FlatButton(
+              Padding(
+                padding: EdgeInsets.only(
+                    left: 0.04 * MediaQuery.of(context).size.width,
+                    right: 0.04 * MediaQuery.of(context).size.width),
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.amber[100],
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        FlatButton(
                           color: Colors.amber[100],
                           onPressed: () => _openFileExplorer(),
                           child: new Text(
@@ -357,58 +381,64 @@ class _EditProfileState extends State<EditProfile> {
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                      ),
-                      new Builder(
-                        builder: (BuildContext context) => _loadingPath
-                            ? Padding(
-                                padding: const EdgeInsets.only(bottom: 10.0),
-                                child: const CircularProgressIndicator())
-                            : _path != null || _paths != null
-                                ? new Container(
-                                    padding:
-                                        const EdgeInsets.only(bottom: 30.0),
-                                    height: MediaQuery.of(context).size.height *
-                                        0.50,
-                                    child: new Scrollbar(
-                                        child: new ListView.separated(
-                                      itemCount:
-                                          _paths != null && _paths.isNotEmpty
-                                              ? _paths.length
-                                              : 1,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        final bool isMultiPath =
-                                            _paths != null && _paths.isNotEmpty;
-                                        final String name = 'File $index: ' +
-                                            (isMultiPath
-                                                ? _paths.keys.toList()[index]
-                                                : _fileName ?? '...');
-                                        final path = isMultiPath
-                                            ? _paths.values
-                                                .toList()[index]
-                                                .toString()
-                                            : _path;
+                        new Builder(
+                          builder: (BuildContext context) => _loadingPath
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 10.0),
+                                  child: const CircularProgressIndicator())
+                              : _path != null || _paths != null
+                                  ? new Container(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 30.0),
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.50,
+                                      child: new Scrollbar(
+                                          child: new ListView.separated(
+                                        itemCount:
+                                            _paths != null && _paths.isNotEmpty
+                                                ? _paths.length
+                                                : 1,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          final bool isMultiPath =
+                                              _paths != null &&
+                                                  _paths.isNotEmpty;
+                                          final String name = 'File $index: ' +
+                                              (isMultiPath
+                                                  ? _paths.keys.toList()[index]
+                                                  : _fileName ?? '...');
+                                          final path = isMultiPath
+                                              ? _paths.values
+                                                  .toList()[index]
+                                                  .toString()
+                                              : _path;
 
-                                        return new ListTile(
-                                          title: new Text(
-                                            name,
-                                          ),
-                                          subtitle: new Text(path),
-                                        );
-                                      },
-                                      separatorBuilder:
-                                          (BuildContext context, int index) =>
-                                              new Divider(),
-                                    )),
-                                  )
-                                : new Container(),
-                      ),
-                    ],
+                                          return new ListTile(
+                                            title: new Text(
+                                              name,
+                                            ),
+                                            subtitle: new Text(path),
+                                          );
+                                        },
+                                        separatorBuilder:
+                                            (BuildContext context, int index) =>
+                                                new Divider(),
+                                      )),
+                                    )
+                                  : new Container(),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 140, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "PER PROJECT RATE IN POUND",
                   style: TextStyle(
@@ -420,7 +450,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 40,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  padding: EdgeInsets.only(
+                      left: 0.04 * MediaQuery.of(context).size.width,
+                      right: 0.04 * MediaQuery.of(context).size.width),
                   child: TextFormField(
                     decoration: new InputDecoration(
                         hintText: "add rate",
@@ -436,8 +468,12 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 280, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "PHONE",
                   style: TextStyle(
@@ -449,7 +485,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 40,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  padding: EdgeInsets.only(
+                      left: 0.04 * MediaQuery.of(context).size.width,
+                      right: 0.04 * MediaQuery.of(context).size.width),
                   child: TextFormField(
                     decoration: new InputDecoration(
                         hintText: "add contact number",
@@ -465,8 +503,12 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 250, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "ABOUT YOU",
                   style: TextStyle(
@@ -476,7 +518,9 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                padding: EdgeInsets.only(
+                    left: 0.04 * MediaQuery.of(context).size.width,
+                    right: 0.04 * MediaQuery.of(context).size.width),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -486,6 +530,7 @@ class _EditProfileState extends State<EditProfile> {
                     // ],
                   ),
                   height: 150,
+                  width: MediaQuery.of(context).size.width,
                   // color: Colors.amber,
                   child: Padding(
                     padding: EdgeInsets.all(10),
@@ -497,8 +542,10 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(height: 15),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 190, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "YOUR PROFILE SKILLS",
                   style: TextStyle(
@@ -510,7 +557,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 40,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  padding: EdgeInsets.only(
+                      left: 0.04 * MediaQuery.of(context).size.width,
+                      right: 0.04 * MediaQuery.of(context).size.width),
                   child: TextFormField(
                     decoration: new InputDecoration(
                         hintText: "Type here to add...",
@@ -526,10 +575,12 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(height: 5),
               Row(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 5, 0, 0),
+                    padding: EdgeInsets.only(
+                        left: 0.05 * MediaQuery.of(context).size.width),
                     child: Text(
                       "Can't find a skill?",
                       style: TextStyle(
@@ -540,34 +591,28 @@ class _EditProfileState extends State<EditProfile> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(5, 5, 0, 0),
-                    child: Material(
-                      child: InkWell(
-                        child: Text(
-                          "Contact Us",
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.amber,
-                              fontFamily: 'Open Sans',
-                              decoration: TextDecoration.none,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        onTap: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => Login(),
-                          //   ),
-                          // );
-                        },
+                  Material(
+                    child: InkWell(
+                      child: Text(
+                        "Contact Us",
+                        style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.amber,
+                            fontFamily: 'Open Sans',
+                            decoration: TextDecoration.none,
+                            fontWeight: FontWeight.bold),
                       ),
+                      onTap: () {},
                     ),
                   ),
                 ],
               ),
+              SizedBox(
+                height: 15,
+              ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 140, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "INDUSTRY EXPERTISE (MAX 5)",
                   style: TextStyle(
@@ -579,7 +624,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 40,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  padding: EdgeInsets.only(
+                      left: 0.04 * MediaQuery.of(context).size.width,
+                      right: 0.04 * MediaQuery.of(context).size.width),
                   child: TextFormField(
                     decoration: new InputDecoration(
                         hintText: "Nothing added",
@@ -595,8 +642,12 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 180, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "PORTFOLIO (OPTIONAL)",
                   style: TextStyle(
@@ -605,23 +656,26 @@ class _EditProfileState extends State<EditProfile> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              Container(
-                height: 150,
-                width: 340,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.amber[100],
-                  // boxShadow: [
-                  //   BoxShadow(color: Colors.green, spreadRadius: 3),
-                  // ],
-                ),
-                // color: Colors.amber[100],
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(right: 160),
-                        child: FlatButton(
+              Padding(
+                padding: EdgeInsets.only(
+                    left: 0.04 * MediaQuery.of(context).size.width,
+                    right: 0.04 * MediaQuery.of(context).size.width),
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.amber[100],
+                    // boxShadow: [
+                    //   BoxShadow(color: Colors.green, spreadRadius: 3),
+                    // ],
+                  ),
+                  // color: Colors.amber[100],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        FlatButton(
                           color: Colors.amber[100],
                           onPressed: () => _openFileExplorer(),
                           child: new Text(
@@ -631,58 +685,62 @@ class _EditProfileState extends State<EditProfile> {
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                      ),
-                      new Builder(
-                        builder: (BuildContext context) => _loadingPath
-                            ? Padding(
-                                padding: const EdgeInsets.only(bottom: 10.0),
-                                child: const CircularProgressIndicator())
-                            : _path != null || _paths != null
-                                ? new Container(
-                                    padding:
-                                        const EdgeInsets.only(bottom: 30.0),
-                                    height: MediaQuery.of(context).size.height *
-                                        0.50,
-                                    child: new Scrollbar(
-                                        child: new ListView.separated(
-                                      itemCount:
-                                          _paths != null && _paths.isNotEmpty
-                                              ? _paths.length
-                                              : 1,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        final bool isMultiPath =
-                                            _paths != null && _paths.isNotEmpty;
-                                        final String name = 'File $index: ' +
-                                            (isMultiPath
-                                                ? _paths.keys.toList()[index]
-                                                : _fileName ?? '...');
-                                        final path = isMultiPath
-                                            ? _paths.values
-                                                .toList()[index]
-                                                .toString()
-                                            : _path;
+                        new Builder(
+                          builder: (BuildContext context) => _loadingPath
+                              ? Padding(
+                                  padding: const EdgeInsets.only(bottom: 10.0),
+                                  child: const CircularProgressIndicator())
+                              : _path != null || _paths != null
+                                  ? new Container(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 30.0),
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.50,
+                                      child: new Scrollbar(
+                                          child: new ListView.separated(
+                                        itemCount:
+                                            _paths != null && _paths.isNotEmpty
+                                                ? _paths.length
+                                                : 1,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          final bool isMultiPath =
+                                              _paths != null &&
+                                                  _paths.isNotEmpty;
+                                          final String name = 'File $index: ' +
+                                              (isMultiPath
+                                                  ? _paths.keys.toList()[index]
+                                                  : _fileName ?? '...');
+                                          final path = isMultiPath
+                                              ? _paths.values
+                                                  .toList()[index]
+                                                  .toString()
+                                              : _path;
 
-                                        return new ListTile(
-                                          title: new Text(
-                                            name,
-                                          ),
-                                          subtitle: new Text(path),
-                                        );
-                                      },
-                                      separatorBuilder:
-                                          (BuildContext context, int index) =>
-                                              new Divider(),
-                                    )),
-                                  )
-                                : new Container(),
-                      ),
-                    ],
+                                          return new ListTile(
+                                            title: new Text(
+                                              name,
+                                            ),
+                                            subtitle: new Text(path),
+                                          );
+                                        },
+                                        separatorBuilder:
+                                            (BuildContext context, int index) =>
+                                                new Divider(),
+                                      )),
+                                    )
+                                  : new Container(),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
+              SizedBox(height: 15),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 220, 0),
+                padding: EdgeInsets.only(
+                    left: 0.05 * MediaQuery.of(context).size.width),
                 child: Text(
                   "LOCATION (CITY)",
                   style: TextStyle(
@@ -694,7 +752,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 40,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  padding: EdgeInsets.only(
+                      left: 0.04 * MediaQuery.of(context).size.width,
+                      right: 0.04 * MediaQuery.of(context).size.width),
                   child: TextFormField(
                     decoration: new InputDecoration(
                         hintText: "Crawley, GB",
@@ -710,8 +770,14 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+              SizedBox(
+                height: 15,
+              ),
+              // Padding(
+              //   padding: EdgeInsets.only(
+              //       left: 0.04 * MediaQuery.of(context).size.width,
+              //       right: 0.04 * MediaQuery.of(context).size.width),
+              Center(
                 child: Container(
                   height: 50.0,
                   width: 200,
@@ -756,6 +822,7 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
               ),
+              SizedBox(height: 15),
             ],
           ),
         ),

@@ -101,14 +101,20 @@ class _DesignerHomeState extends State<DesignerHome> {
               decoration: new BoxDecoration(color: Colors.amber),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DesignerHome()));
+              },
               child: ListTile(
                 title: Text('Home Page'),
                 leading: Icon(Icons.home, color: Colors.amber),
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DProfile()));
+              },
               child: ListTile(
                 title: Text('My accounts'),
                 leading: Icon(Icons.person, color: Colors.amber),

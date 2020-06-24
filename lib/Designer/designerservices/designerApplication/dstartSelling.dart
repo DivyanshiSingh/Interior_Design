@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:interiordesign/Designer/designerservices/designerSelling/editProfile.dart';
-import 'package:interiordesign/Designer/designerservices/designerSelling/example.dart';
+import 'package:interiordesign/Designer/designerservices/designerApplication/editProfile.dart';
+// import 'package:interiordesign/Designer/designerservices/designerSelling/editProfile.dart';
+// import 'package:interiordesign/Designer/designerservices/designerSelling/example.dart';
 
 class DStartSelling extends StatefulWidget {
   @override
@@ -26,25 +27,29 @@ class _DStartSellingState extends State<DStartSelling> {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                padding: EdgeInsets.only(
+                  left: 0.07 * MediaQuery.of(context).size.width,
+                  // right: 0.08 * MediaQuery.of(context).size.width
+                ),
                 child: Text(
-                  "You're almost ready to start",
+                  "You're almost ready to start selling",
                   style: TextStyle(
                       color: Colors.grey[600],
-                      fontSize: 30,
+                      fontSize: 27,
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                child: Text(
-                  "selling!",
-                  style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
+
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+              //   child: Text(
+              //     "selling!",
+              //     style: TextStyle(
+              //         color: Colors.grey[600],
+              //         fontSize: 30,
+              //         fontWeight: FontWeight.bold),
+              //   ),
+              // ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
                 child: Text(
