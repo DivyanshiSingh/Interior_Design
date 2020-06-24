@@ -101,14 +101,28 @@ class _HomeState extends State<Home> {
               decoration: new BoxDecoration(color: Colors.amber),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Home(),
+                  ),
+                );
+              },
               child: ListTile(
                 title: Text('Home Page'),
                 leading: Icon(Icons.home, color: Colors.amber),
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyHomePage(),
+                  ),
+                );
+              },
               child: ListTile(
                 title: Text('My accounts'),
                 leading: Icon(Icons.person, color: Colors.amber),

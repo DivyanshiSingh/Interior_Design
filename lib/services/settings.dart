@@ -19,43 +19,38 @@ class _SettingsState extends State<Settings> {
         ),
       ),
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.height,
         color: Colors.white,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: SizedBox(
-                height: 30,
-                width: double.infinity,
-                child: FlatButton(
-                  color: Colors.white,
-                  padding: EdgeInsets.all(2.0),
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => Home(),
-                    //   ),
-                    // );
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        top: 0.01 * MediaQuery.of(context).size.height,
-                        right: 0.72 * MediaQuery.of(context).size.width),
-                    child: Text(
-                      "Account",
-                      style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
-                    ),
-                  ),
+            SizedBox(height: 30),
+            Divider(),
+            SizedBox(
+              height: 30,
+              width: MediaQuery.of(context).size.width,
+              child: FlatButton(
+                color: Colors.white,
+                padding: EdgeInsets.all(2.0),
+                onPressed: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => Home(),
+                  //   ),
+                  // );
+                },
+                child: Text(
+                  "Account",
+                  style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
                 ),
               ),
             ),
             Divider(),
             SizedBox(
               height: 30,
-              width: double.infinity,
+              width: MediaQuery.of(context).size.width,
               child: FlatButton(
                 color: Colors.white,
                 textColor: Colors.grey,
@@ -68,48 +63,31 @@ class _SettingsState extends State<Settings> {
                   //   ),
                   // );
                 },
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      top: 0.01 * MediaQuery.of(context).size.height,
-                      right: 0.78 * MediaQuery.of(context).size.width),
-                  child: Text(
-                    "Help",
-                    style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
-                  ),
+                child: Text(
+                  "Help",
+                  style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
                 ),
               ),
             ),
             Divider(),
             SizedBox(
               height: 30,
-              width: double.infinity,
+              width: MediaQuery.of(context).size.width,
               child: FlatButton(
                 color: Colors.white,
                 textColor: Colors.grey,
                 padding: EdgeInsets.all(2.0),
-                onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => Home(),
-                  //   ),
-                  // );
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      top: 0.01 * MediaQuery.of(context).size.height,
-                      right: 0.55 * MediaQuery.of(context).size.width),
-                  child: Text(
-                    "Terms & Conditions",
-                    style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
-                  ),
+                onPressed: () {},
+                child: Text(
+                  "Terms & Conditions",
+                  style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
                 ),
               ),
             ),
             Divider(),
             SizedBox(
               height: 30,
-              width: double.infinity,
+              width: MediaQuery.of(context).size.width,
               child: FlatButton(
                 color: Colors.white,
                 textColor: Colors.grey,
@@ -118,20 +96,19 @@ class _SettingsState extends State<Settings> {
                   // Navigator.pushReplacement(context,
                   //     MaterialPageRoute(builder: (context) => FeedbackPage()));
                 },
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      top: 0.01 * MediaQuery.of(context).size.height,
-                      right: 0.58 * MediaQuery.of(context).size.width),
-                  child: Text(
-                    "Leave Feedback",
-                    style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
-                  ),
+                child: Text(
+                  "Leave Feedback",
+                  style: TextStyle(fontSize: 15.0, color: Colors.grey[700]),
                 ),
               ),
             ),
             Divider(),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 280, 20, 10),
+              padding: EdgeInsets.only(
+                top: 0.4 * MediaQuery.of(context).size.height,
+                left: 0.05 * MediaQuery.of(context).size.width,
+                right: 0.05 * MediaQuery.of(context).size.width,
+              ),
               child: SizedBox(
                 height: 45,
                 width: double.infinity,
